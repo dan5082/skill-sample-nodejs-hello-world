@@ -7,7 +7,7 @@ var msg = "Hello World!";
 //console.log(msg);
 
 exports.getCurrentDrinks = function (callback) {
-    var drink = {};
+    //var drink = {};
     //var drinks = []; // should this be = {}
     console.log(msg);
 
@@ -21,11 +21,13 @@ exports.getCurrentDrinks = function (callback) {
         var drinkArr = JSON.parse(data);
         responseString = this.getOnTapSpeech(drinkArr);
 
-    callback(drink);// kinda confused what a callback is for
+    callback(drinkArr);// kinda confused what a callback is for
     });
    })
     .on('error', (err) => {
         console.log("Error: " + err.message);
+
+    responseString = "Sorry we are having issues connecting to kegerator database";
 
 
      });
@@ -67,3 +69,7 @@ exports.getCurrentDrinks = function (callback) {
             return res;
         }
     }
+
+    exports.getOutput = function(){
+    return responseString;
+}

@@ -31,7 +31,7 @@ const handlers = {
         var self = this;
         var callback = function(drinks){
             var speechOutput = "";
-            speechOutput += data.getOutput;
+            speechOutput += data.getOutput();
             self.emit(':tell', speechOutput);
         };
         var drinks = data.getCurrentDrinks(callback);
