@@ -3,7 +3,7 @@ var http = require('http');
 const url = "someUrlThatNickWillGiveMe";
 var responseString = "";
 
-var msg = "Hello World!";
+var brews;
 //console.log(msg);
 
 exports.getCurrentDrinks = function (callback) {
@@ -19,6 +19,7 @@ exports.getCurrentDrinks = function (callback) {
 
     response.on('end', () => {
         var drinkArr = JSON.parse(data);
+        brews = Object.keys(drinkArr);
         responseString = this.getOnTapSpeech(drinkArr);
 
     callback(drinkArr);// kinda confused what a callback is for
@@ -35,34 +36,34 @@ exports.getCurrentDrinks = function (callback) {
 
     exports.getOnTapSpeech = function(drinkArr){
 
-        if(drinkArr.length == 0){
+        if(brews.length == 0){
             return "There are no drinks on tap! Better start brewing!"
         }
-        if(drinkArr.length == 1){
-            var res = "We just have some " + drinkArr[0] + " on tap. It has an ABV percentage of "
-            + drinkArr[0].ABV;
+        if(brews.length == 1){
+            var res = "We just have some " + brews[0] + " on tap. It has an ABV percentage of "
+            + drinkArr[brews[0]].ABV;
 
-            if(drinkArr[0].amountRem < 2000){
+            if(drinkArr[brews[0]].amountRem < 2000){
                 res += ". There isn't much left, so please drink responsibly"
             }
 
             return res;
         }else{
             var res = "We have some ";
-            while(drinkArr.length > 1){
-                var temp = drinkArr.pop();
-                res += temp + " It has an ABV percentage of " + temp.ABV;
-                if(temp.amountRem < 2000){
+            while(brews.length > 1){
+                var temp = brews.pop();
+                res += temp + " It has an ABV percentage of " + drinkArr[temp].ABV;
+                if(drinkArr[temp].amountRem < 2000){
                     res += ". There isn't much left, so please drink responsibly"
                 }
 
                 res += " and in addition we also have ";
             }
 
-             res += drinkArr[0] + " on tap. It has an ABV percentage of "
-                + drinkArr[0].ABV;
+             res += drinkArr[brews[0]] + " on tap. It has an ABV percentage of "
+                + drinkArr[brews[0]].ABV;
 
-            if(drinkArr[0].amountRem < 2000){
+            if(drinkArr[brews[0]].amountRem < 2000){
                 res += ". There isn't much left, so please drink responsibly"
             }
 
