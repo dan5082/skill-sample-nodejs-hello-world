@@ -1,7 +1,7 @@
 {
   "name": "skill-sample-nodejs-hello-world",
   "version": "1.0.0",
-  "description": "Hello world sample skill",
+  "description": "Kegerator what's onTap skill",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,17 +11,18 @@
     "url": "git+https://github.com/alexa/skill-sample-nodejs-hello-world.git"
   },
   "keywords": [
-    "helloworld",
+    "kegerator",
     "alexa",
     "skill"
   ],
-  "author": "Amazon.com",
+  "author": "dan5082",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/alexa/skill-sample-nodejs-hello-world/issues"
   },
   "homepage": "https://github.com/alexa/skill-sample-nodejs-hello-world#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.0"
+    "alexa-sdk": "^1.0.0",
+    "http": "^0.0.0"
   }
 }

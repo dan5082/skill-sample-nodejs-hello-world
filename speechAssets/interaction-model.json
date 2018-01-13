@@ -1,8 +1,9 @@
 {
+  "languageModel": {
     "intents": [
       {
-        "name": "AMAZON.CancelIntent",  
-        "samples": []  
+        "name": "AMAZON.CancelIntent",
+        "samples": []
       },
       {
         "name": "AMAZON.HelpIntent",
@@ -13,13 +14,16 @@
         "samples": []
       },
       {
-        "name": "HelloWorldIntent",
+        "name": "onTapIntent",
         "samples": [
-            "hello",
-            "say hello",
-            "hello world"
+          "what's on tap",
+          "what drinks do we have",
+          "what drinks are on tap",
+          "what do you have"
         ],
         "slots": []
       }
-    ]
+    ],
+    "invocationName": "kegerator"
   }
+}
