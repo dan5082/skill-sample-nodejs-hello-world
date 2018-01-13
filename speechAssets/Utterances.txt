@@ -1,3 +1,4 @@
-HelloWorldIntent hello
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
+onTapIntent what's on tap
+onTapintent what drinks do we have
+onTapintent what drinks are on tap
+onTapintent what do you have
